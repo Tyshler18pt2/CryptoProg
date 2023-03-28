@@ -1,13 +1,13 @@
-#include <iostream>
+include <iostream>
 #include "hash.h"
 int main(int argc, char **argv)
 {
     StringHash hash(Hash::SHA1);
-    std::string demo("hello, world");
+    std::string demo("My name is Gustavo, but u call me Stas");
     std::cout << "Hash "<<hash.name() <<" from string \'"<<demo<<"\' is\n";
     std::cout << hash(demo) << std::endl;
 
-    std::string psw("SuperPa$$w0rd");
+    std::string psw("dorogoy");
     StringHash hmac(psw, Hash::HMAC_SHA256);
     std::string salt("qaMr4Gm3");
     std::cout << "Hash "<<hmac.name() <<" from string \'"<<salt<<"\' on password \'"<<psw<<"\' is\n";
@@ -17,3 +17,4 @@ int main(int argc, char **argv)
     std::string fname(argv[0]);
     std::cout << "Hash "<<fhash.name() <<" from file \'"<<fname<<"\' is\n";
     std::cout << fhash(fname) << std::endl;
+}
